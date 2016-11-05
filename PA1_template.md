@@ -1,6 +1,5 @@
 ###Load the data (i.e. read.csv())
 ```{r,echo=TRUE}
-setwd("/Users/apple")
 activity <- read.csv("activity.csv",colClasses = c("numeric", "character","integer"))
 ```
 ###Process/transform the data (if necessary) into a format suitable for your analysis
@@ -46,7 +45,7 @@ daily <- activity %>%
         summarize(steps=mean(steps)) %>%
         print
 ```
-##Make a time series plot (i.e. type = ???l???) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
+##Make a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 ```{r,echo=TRUE}
 plot(daily, type = "l")
 ```
@@ -107,7 +106,7 @@ hist(total.steps,col="blue")
 ```
 ###Part 3
 ##Are there differences in activity patterns between weekdays and weekends?
-###For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part. Create a new factor variable in the dataset with two levels ??? ???weekday??? and ???weekend??? indicating whether a given date is a weekday or weekend day.
+###For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part. Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
 ```{r,echo=TRUE}
 dayofweek <- function(date) {
     if (weekdays(as.Date(date)) %in% c("Saturday", "Sunday")) {
